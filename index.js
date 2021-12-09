@@ -24,12 +24,12 @@ function appMenu() {
       .prompt([
         {
           type: "input",
-          name: "managerName",
+          name: "name",
           message: "What is your manager's name?",
         },
         {
           type: "input",
-          name: "managerID",
+          name: "id",
           message: "What is your manager's employee ID number?",
         },
         {
@@ -57,6 +57,30 @@ function appMenu() {
       });
   }
 
+  // Next the user will be given the choices to add an engineer, intern, or finish adding to their team.
+
+  function createTeam() {
+    inquirer
+      .prompt([
+        {
+          type: "list",
+          name: "promptType",
+          message: "What type of employee would you like to add?",
+          choices: ["Engineer", "Intern", "I am done adding members to my team."],
+        },
+      ])
+      .then((answer) => {
+        if (answer.promptType === "Engineer") {
+          addEngineer();
+        } else if (answer.promptType === "Intern") {
+          addIntern();
+        } else {
+          buildTeam();
+        }
+      });
+  }
+
+
   // Below is the function to prompt the user to add an engineer
   createEngineer();
   function createEngineer() {
@@ -64,17 +88,17 @@ function appMenu() {
       .prompt([
         {
           type: "input",
-          name: "engineerName",
+          name: "name",
           message: "What is the engineer's name?",
         },
         {
           type: "input",
-          name: "engineerID",
+          name: "id",
           message: "What is your engineer's employee ID number?",
         },
         {
           type: "input",
-          name: "engineerEmail",
+          name: "email",
           message: "What is your engineer's current email address?",
         },
         {
@@ -104,17 +128,17 @@ function appMenu() {
       .prompt([
         {
           type: "input",
-          name: "internName",
+          name: "name",
           message: "What is the intern's name?",
         },
         {
           type: "input",
-          name: "internID",
+          name: "id",
           message: "What is your intern's employee ID number?",
         },
         {
           type: "input",
-          name: "internEmail",
+          name: "email",
           message: "What is your engineer's current email address?",
         },
         {
@@ -138,26 +162,6 @@ function appMenu() {
   }
 
 
-  function createTeam() {
-    inquirer
-      .prompt([
-        {
-          type: "list",
-          name: "promptType",
-          message: "What type of employee would you like to add?",
-          choices: ["Engineer", "Intern", "Finished"],
-        },
-      ])
-      .then((answer) => {
-        if (answer.promptType === "Engineer") {
-          addEngineer();
-        } else if (answer.promptType === "Intern") {
-          addIntern();
-        } else {
-          buildTeam();
-        }
-      });
-  }
 
   // // Coder/Engineer Prompt
   // {

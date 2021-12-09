@@ -7,12 +7,13 @@ const generateTeam = (team) => {
     return `
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                ${manager.managerName}
+                <h2>${manager.getName()}</h2>
+                <h3>${manager.getRole()}</h3>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${manager.managerID}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${manager.managerEmail}">${manager.managerEmail}</a></li>
-                    <li class="list-group-item">${manager.officeNum}</li>
+                    <li class="list-group-item">ID: ${manager.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
+                    <li class="list-group-item">Office Number:${manager.getOfficeNumber()}</li>
                 </ul>
             </div>
         `;
@@ -22,12 +23,13 @@ const generateTeam = (team) => {
     return `
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                ${engineer.engineerName}
+                <h2>${engineer.getName()}</h2>
+                <h3>${engineer.getRole()}</h3>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${engineer.engineerID}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${engineer.engineerEmail}">${engineer.engineerEmail}</a></li>
-                    <li class="list-group-item">GitHub Profile: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></li>
+                    <li class="list-group-item">ID: ${engineer.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
+                    <li class="list-group-item">GitHub Profile: <a href="https://github.com/${engineer.getGitHub()}" target="_blank">${engineer.github}</a></li>
                 </ul>
             </div>
         `;
@@ -37,12 +39,13 @@ const generateTeam = (team) => {
     return `
             <div class="card" style="width: 18rem;">
                 <div class="card-header">
-                ${intern.internName}
+                <h2>${intern.getName()}</h2>
+                <h3>${intern.getRole()}</h3>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">${intern.internID}</li>
-                    <li class="list-group-item">Email: <a href="mailto:${intern.internEmail}">${intern.internEmail}</a></li>
-                    <li class="list-group-item">School: ${intern.school}</li>
+                    <li class="list-group-item">ID: ${intern.getId()}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                    <li class="list-group-item">School: ${intern.getSchool()}</li>
                 </ul>
             </div>
         `;
