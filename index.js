@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 // add required js files here
-// const html = require("");
+const html = require("./src/page-template");
 
 // Are these necessary?
 const Manager = require("./js/Manager");
@@ -66,8 +66,8 @@ function createManager() {
     ])
     .then((answers) => {
       const manager = new Manager(
-        answers.managerName,
-        answers.managerID,
+        answers.name,
+        answers.id,
         answers.email,
         answers.officeNum
       );
@@ -92,9 +92,9 @@ function createTeam() {
     ])
     .then((answer) => {
       if (answer.promptType === "Engineer") {
-        addEngineer();
+        createEngineer();
       } else if (answer.promptType === "Intern") {
-        addIntern();
+        createIntern();
       } else {
         buildTeam();
       }
@@ -128,9 +128,9 @@ function createEngineer() {
     ])
     .then((answers) => {
       const engineer = new Engineer(
-        answers.engineerName,
-        answers.engineerID,
-        answers.engineerEmail,
+        answers.name,
+        answers.id,
+        answers.email,
         answers.github
       );
       teamMembers.push(engineer);
@@ -168,9 +168,9 @@ function createIntern() {
     ])
     .then((answers) => {
       const intern = new Intern(
-        answers.internName,
-        answers.internID,
-        answers.internEmail,
+        answers.name,
+        answers.id,
+        answers.email,
         answers.school
       );
       teamMembers.push(intern);
@@ -181,11 +181,10 @@ function createIntern() {
 }
 
 function buildTeam() {
-  fs.writeFile(outputPath, html(newTeam), (err) =>
-    err
-      ? console.log(err)
-      : console.log("Success! You have created a new team!")
-  );
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR)
+  }
+  fs.writeFile(outputPath, html(teamMembers), 'utf8', (err) => err ? console.log(err) : console.log('created'));
 }
 
 appPrompt();
