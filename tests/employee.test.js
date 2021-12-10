@@ -7,42 +7,42 @@ test("Can I instantiate Employee instance", () => {
 
 test("can set name", () => {
     const name = 'Matt'
-    const e = new Employee(name)
-    expect(e.name).toBe('Matt')
+    const empName = new Employee(name)
+    expect(empName.name).toBe('Matt')
 })
 
 test("can set id", () => {
     const testValue = 1
-    const e = new Employee('Matt', testValue)
-    expect(e.id).toBe(testValue)
+    const empID = new Employee('Matt', testValue)
+    expect(empID.id).toBe(testValue)
 })
 
 test("can set email via constructor argument", () => {
     const email = 'test@test.com'
-    const e = new Employee('Matt', 1, email)
-    expect(e.email).toBe(email)
+    const empEmail = new Employee('Matt', 1, email)
+    expect(empEmail.email).toBe(email)
 })
 
 test("can get name via getName()", () => {
     const name = 'Matt'
-    const e = new Employee(name)
-    expect(e.getName()).toBe('Matt')
+    const empName = new Employee(name)
+    expect(empName.getName()).toBe('Matt')
 })
 
 test("can get id via getId()", () => {
-    const id= 1
-    const e = new Employee('Matt', id)
-    expect(e.getId()).toBe(id)
+    const id = 1
+    const empID2 = new Employee('Matt', id)
+    expect(empID2.getId()).toBe(id)
 })
 
 test("can get email via getEmail()", () => {
     const email = 'test@test.com'
-    const e = new Employee('Matt', 1, email)
-    expect(e.email).toBe(email)
+    const empEmail2 = new Employee('Matt', 1, email)
+    expect(empEmail2.email).toBe(email)
 })
 
 test("getRole() should return 'Employee'", () => {
-    const value = 'Employee'
-    const e = new Employee('Matt', 1, 'test@test.com')
-    expect(e.getRole()).toBe('Employee')
+    const roleValue = 'Employee'
+    const empRole = new Employee('Matt', 1, 'test@test.com')
+    expect(empRole.getRole()).toBe('Employee')
 })
