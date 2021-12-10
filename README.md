@@ -9,6 +9,6 @@ Within the tests folder, you can find js files pertaining to the Employee, Manag
 
 ## Links
 
-GitHub Repository: 
+GitHub Repository: https://github.com/MattReynolds53/Coding-Team-Generator
 
-ScreenCastify Link: 
+ScreenCastify Link: https://drive.google.com/file/d/1u5wmaeXG3Il7auqGa40GPCfnBTDTqquw/view
