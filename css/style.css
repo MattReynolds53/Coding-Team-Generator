@@ -8,3 +8,15 @@
 #title {
     font-size: 60px;
 }
+
+#cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+}

@@ -87,11 +87,13 @@ function createTeam() {
         type: "list",
         name: "promptType",
         message: "What type of employee would you like to add?",
-        choices: ["Engineer", "Intern", "I am done adding members to my team."],
+        choices: ["Manager", "Engineer", "Intern", "I am done adding members to my team."],
       },
     ])
     .then((answer) => {
-      if (answer.promptType === "Engineer") {
+      if (answer.promptType === "Manager") {
+        createManager();
+      } else if (answer.promptType === "Engineer") {
         createEngineer();
       } else if (answer.promptType === "Intern") {
         createIntern();
